@@ -1,0 +1,19 @@
+            📱 User (Mobile / Laptop)
+                    │
+                    │  WiFi Network
+                    ▼
+           🌐 NodeMCU (ESP8266)
+        (Web Server + WiFi Module)
+                    │
+        Serial Communication (TX/RX)
+                    ▼
+           🔵 Arduino UNO
+     (Sensor Processing + Logic Control)
+          │                  │
+          │                  │
+        🌗 LDR            🚶 PIR
+    (Light Sensor)   (Motion Sensor)
+                    │
+                    ▼
+              💡 LED Street Light
+           (via MOSFET / Driver)
