@@ -9,7 +9,10 @@ Scalable System Design
 Each project reflects implementation of real-world engineering principles including data preprocessing, model optimization, automation logic design, and modular software architecture.
 
 📌 PROJECTS
+
+
 🤖 BusinessBuddy — AI-Powered NLP Chatbot System
+
 🔎 Domain
 Artificial Intelligence • NLP • Conversational Systems • Intelligent Automation
 🎯 Problem Statement
