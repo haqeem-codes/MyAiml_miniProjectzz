@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Business Buddy</title>
+    <link rel="icon" href="/static/Logo.png" type="image/png">
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 100%;
+            padding: 15px;
+            background: #222;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .container img {
+            width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+        }
+
+        button {
+            width: 90%;
+            padding: 12px;
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: gold;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="/static/Logo.png" alt="Business Buddy Logo">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+    </div>
+
+    <!-- Firebase Script at the Bottom -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Firebase Configuration (Correct this with your real credentials)
+        const firebaseConfig = {
+            apiKey: "AIzaSyD1BQAfTnGZlyiJpJ_zhHfY0dMMo17eBIM",
+            authDomain: "buisness-buddy.firebaseapp.com",
+            projectId: "buisness-buddy",
+            storageBucket: "buisness-buddy.firebasestorage.app",
+            messagingSenderId: "322423238447",
+            appId: "1:322423238447:web:a90410d28651a276b7fbda"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("signupBtn").addEventListener("click", function () {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    alert("Account created! You can now log in.");
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
+
+        document.getElementById("loginBtn").addEventListener("click", function () {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    window.location.href = "/chat";
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
+    </script>
+
+</body>
+</html>
